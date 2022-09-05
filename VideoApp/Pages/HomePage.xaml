@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:VideoApp.ViewModels"
+             xmlns:m="clr-namespace:VideoApp.Models"
+             x:Class="VideoApp.Pages.HomePage"
+             Title="首页">
+    <NavigationPage.HasNavigationBar>False</NavigationPage.HasNavigationBar>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+ 
+        <Border >
+            <HorizontalStackLayout Spacing="10">
+                <Label Text="Hello" />
+                <Label Text="{Binding Name}" />
+            </HorizontalStackLayout>
+            
+        </Border>
+
+        <CollectionView Grid.Row="1" ItemsSource="{Binding Tags}" >
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical" Span="4"/>
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate >
+                <DataTemplate >
+                    <Grid>
+                        <Button Style="{StaticResource VideoButton}" Text="{Binding Name}" 
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type vm:HomeViewModel}},Path=ButtonClicked}" />
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate> 
+        </CollectionView>
+        
+    </Grid>
+</ContentPage>

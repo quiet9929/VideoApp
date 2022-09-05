@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="VideoApp.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:VideoApp"
+    xmlns:pages="clr-namespace:VideoApp.Pages"
+    Shell.NavBarIsVisible="False"
+    Shell.FlyoutBehavior="Disabled">
+
+    <TabBar>
+        <ShellContent Title="Home" ContentTemplate="{DataTemplate pages:HomePage}" />
+        <ShellContent Title="Hello" ContentTemplate="{DataTemplate pages:HelloPage}" />
+    </TabBar>
+
+    <ShellContent Title="VideoList" ContentTemplate="{DataTemplate pages:VideoListPage}" Route="VideoList" />
+
+</Shell>
